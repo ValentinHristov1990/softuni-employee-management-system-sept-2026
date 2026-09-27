@@ -25,12 +25,12 @@ export default function UserDetails({
 
     return (
         <div className="overlay">
-            <div className="backdrop"></div>
+            <div className="backdrop" onClick={onClose}></div>
             <div className="modal">
                 <div className="detail-container">
                     <header className="headers">
                         <h2>User Detail</h2>
-                        <button className="btn close">
+                        <button className="btn close" onClick={onClose}>
                             <svg
                                 aria-hidden="true"
                                 focusable="false"
