@@ -23,7 +23,6 @@ export default function SaveUserModal({
         onSubmit(employee);
     }
 
-
     return (
         <div className="overlay">
             <div className="backdrop" onClick={onClose}></div>
