@@ -5,7 +5,7 @@ import Footer from "./components/FooterSection";
 import Header from "./components/HeaderSection";
 import Pagination from "./components/Pagination";
 import Spinner from "./components/Spinner";
-import DeleteConfirmation from "./components/UserDeleteConfirmation";
+import UserDeleteModal from "./components/UserDeleteModal";
 import UserDetails from "./components/UserDetails";
 import UserList from "./components/UserList";
 import UserSearch from "./components/UserSearch";
@@ -55,13 +55,10 @@ function App() {
   return (
     <>
       <Header />
-
-      {/* <!-- Main component  --> */}
       <main className="main">
         <section className="card users-container">
-          {/* <Spinner /> */}
           <UserSearch />
-          <UserList users={users} />
+          <UserList users={users} setUsers={setUsers} />
           <button className="btn-add btn" onClick={addUserClickHandler}>
             Add new user
           </button>
@@ -73,16 +70,13 @@ function App() {
           )}
           <Pagination />
         </section>
-
-        {/* <UserDetails /> */}
       </main>
-      {/* <DeleteConfirmation /> */}
       <Footer />
     </>
   );
 }
 
-async function fetchUsers() {
+export async function fetchUsers() {
   const response = await fetch(baseURL, {
     headers: {
       apikey: apiKey,
